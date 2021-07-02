@@ -66,12 +66,12 @@ insert into employee_payroll values
 update employee_payroll set taxable_pay=12000.00, department='marketing',income_tax=2000.00, net_pay=1233 where id=4;
 select * from employee_payroll where name='Tessa'
 
-///usecase12
+///usecase11
 
 create table Employee_Dept1
 (
-Emp_id int not null,
-dept_id int not null,
+ Emp_id int foreign key references Employee1(Emp_id),
+dept_id int foreign key references Department1(dept_id),
 );
  select * from Employee_Dept1
 
@@ -85,11 +85,11 @@ dept_id int not null,
  adress varchar(100) not null,
  );
 
- select * from Employee
+ select * from Employee1
 
  create table Payroll1
  (
- Emp_id int not null,
+ Emp_id int foreign key references Employee1(Emp_id),
  basicpay money not null,
 deduction money not null,
  taxable_pay money not null,
